@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milkmagic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="delivery.css">
+</head>
+<body>
+    <!-- PREMIUM DELIVERY REQUEST SECTION -->
+<section class="delivery-wrapper">
+
+  <!-- HEADER -->
+  <div class="delivery-hero">
+    <h1>🛵 Fast Delivery Request</h1>
+    <p>Order your favorite meals & drinks and get them delivered quickly to your doorstep.</p>
+  </div>
+
+  <!-- DELIVERY CARD -->
+  <div class="delivery-card">
+
+    <!-- LEFT SIDE -->
+    <div class="delivery-form">
+
+      <div class="form-title">
+        <span>📦</span>
+        <h2>Delivery Details</h2>
+      </div>
+
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="d-name" placeholder="Enter your full name">
+      </div>
+
+      <div class="input-group">
+        <label>Phone Number</label>
+        <input type="tel" id="d-phone" placeholder="07XXXXXXXX">
+      </div>
+
+      <div class="input-grid">
+
+        <div class="input-group">
+          <label>Pickup Location</label>
+          <input type="text" id="pickup" placeholder="Restaurant / Pickup point">
+        </div>
+
+        <div class="input-group">
+          <label>Delivery Location</label>
+          <input type="text" id="dropoff" placeholder="Customer address">
+        </div>
+
+      </div>
+
+      <div class="input-group">
+        <label>Order Details</label>
+        <textarea id="order-details" placeholder="Pizza, Shawarma, Milkshakes, Coffee..."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Extra Notes</label>
+        <textarea id="notes" placeholder="Apartment number, landmarks, gate code..."></textarea>
+      </div>
+
+      <!-- PRICE BOX -->
+      <div class="delivery-summary">
+
+        <div class="sum-row">
+          <span>🛵 Delivery Fee</span>
+          <strong>KSh 150</strong>
+        </div>
+
+        <div class="sum-row">
+          <span>⏱ Estimated Time</span>
+          <strong>25 - 45 mins</strong>
+        </div>
+
+        <div class="sum-row total">
+          <span>🔥 Fast Delivery Available</span>
+          <strong>Today</strong>
+        </div>
+
+      </div>
+
+      <!-- BUTTON -->
+      <button class="request-btn" onclick="sendDeliveryRequest()">
+        🚀 Request Delivery
+      </button>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="map-section">
+
+      <div class="map-header">
+        📍 Live Delivery Coverage
+      </div>
+
+      <iframe
+        src="https://maps.google.com/maps?q=Nanyuki&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+      <div class="coverage-box">
+        <h3>✨ Areas Covered</h3>
+        <p>Nanyuki Town • Likii • Kamakwa • Airstrip • Cedar Mall • Nyeri Road & nearby areas.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+function sendDeliveryRequest(){
+
+  const name = document.getElementById("d-name").value;
+  const phone = document.getElementById("d-phone").value;
+  const pickup = document.getElementById("pickup").value;
+  const dropoff = document.getElementById("dropoff").value;
+  const order = document.getElementById("order-details").value;
+  const notes = document.getElementById("notes").value;
+
+  if(!name || !phone || !pickup || !dropoff || !order){
+    alert("Please fill all required fields.");
+    return;
+  }
+
+  const message =
+`🛵 *NEW DELIVERY REQUEST* %0A%0A
+👤 Name: ${name}%0A
+📞 Phone: ${phone}%0A
+📍 Pickup: ${pickup}%0A
+🏠 Delivery: ${dropoff}%0A
+🛒 Order: ${order}%0A
+📝 Notes: ${notes}%0A%0A
+Please confirm delivery availability.`;
+
+  window.open(
+    `https://wa.me/254758136588?text=${message}`,
+    "_blank"
+  );
+
+}
+
+</script>
+    
+</body>
+</html>
